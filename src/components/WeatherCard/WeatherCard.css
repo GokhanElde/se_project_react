@@ -1,0 +1,16 @@
+.weather {
+  width: 100%;
+  height: 80px;
+  background: #a3c9ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.weather__temp {
+  font-size: 32px;
+  font-weight: 600;
+  color: #000;
+}
