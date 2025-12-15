@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./Header.css";
 
 const Header = ({ onAddClothes, city }) => {
   const currentDate = new Date().toLocaleString("default", {
