@@ -1,8 +1,41 @@
-# React + Vite
+# WTWR (What to Wear)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+WTWR is a weather-based clothing recommendation app built with React.  
+The app fetches the current weather data for a selected location and displays clothing items that are suitable for the current temperature.
 
-Currently, two official plugins are available:
+## Functionality
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Fetches real-time weather data from the OpenWeather API
+- Displays the current temperature and city name
+- Filters clothing items based on weather conditions (hot, warm, cold)
+- Opens a modal to add new clothing items (UI only)
+- Opens an image modal when a clothing card is clicked
+- Responsive layout for different screen sizes
+
+## Technologies Used
+
+- React
+- Vite
+- JavaScript (ES6)
+- CSS (BEM methodology)
+- OpenWeather API
+
+## Project Structure
+
+- `components/` — React components (Header, Main, WeatherCard, ItemCard, modals)
+- `utils/` — API logic and constants
+- `vendor/` — normalize.css and font styles
+
+## Future Improvements
+
+- Switch between Fahrenheit and Celsius
+- Add user authentication
+- Like and save clothing items
+- Allow users to add and delete items with backend support
+
+## Demo
+
+## Demo
+
+Live demo:  
+https://GokhanElde.github.io/se_project_react/
