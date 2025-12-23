@@ -21,7 +21,7 @@ const ModalWithForm = ({
       onClick={handleOverlayClick}
     >
       <div className="modal__content">
-        <button className="modal__close" onClick={onClose}>
+        <button className="modal__close" onClick={onClose} type="button">
           ✕
         </button>
 

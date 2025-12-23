@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
+
 import Header from "./Header/Header.jsx";
 import Main from "./Main.jsx";
 import Footer from "./Footer.jsx";
-import ModalWithForm from "./ModalWithForm/ModalWithForm.jsx";
 import ItemModal from "./ItemModal/ItemModal.jsx";
+import AddGarmentModal from "./AddGarmentModal/AddGarmentModal.jsx";
 
 import { defaultClothingItems } from "../utils/clothingItems.js";
-import { getWeather, getWeatherCondition } from "../utils/weatherApi.js";
+import { getWeather } from "../utils/weatherApi.js";
+
 import "../App.css";
 
 function App() {
@@ -15,18 +17,28 @@ function App() {
   const [selectedCard, setSelectedCard] = useState(null);
 
   const [weatherData, setWeatherData] = useState({
-    temperature: "",
+    temperature: null,
     city: "",
   });
 
   useEffect(() => {
-    getWeather().then((data) => {
-      setWeatherData(data);
-    });
+    getWeather()
+      .then((data) => {
+        setWeatherData({
+          temperature: data.main?.temp ?? null,
+          city: data.name ?? "Unknown location",
+        });
+      })
+      .catch(() => {
+        setWeatherData({
+          temperature: null,
+          city: "Unknown location",
+        });
+      });
   }, []);
 
-  const handleOpenAddItemModal = () => {
-    setActiveModal("add-item");
+  const handleOpenAddGarmentModal = () => {
+    setActiveModal("add-garment");
   };
 
   const handleCardClick = (card) => {
@@ -34,14 +46,22 @@ function App() {
     setActiveModal("preview");
   };
 
-  const handleCloseModal = () => {
+  const closeAllModals = () => {
     setActiveModal("");
     setSelectedCard(null);
   };
 
+  const handleAddGarment = (newItem) => {
+    setClothingItems((prevItems) => [newItem, ...prevItems]);
+    closeAllModals();
+  };
+
   return (
     <div className="page">
-      <Header onAddClothes={handleOpenAddItemModal} city={weatherData.city} />
+      <Header
+        onAddClothes={handleOpenAddGarmentModal}
+        city={weatherData.city}
+      />
 
       <Main
         clothingItems={clothingItems}
@@ -51,37 +71,16 @@ function App() {
 
       <Footer />
 
-      <ModalWithForm
-        title="New Garment"
-        name="add-item"
-        buttonText="Add"
-        isOpen={activeModal === "add-item"}
-        onClose={handleCloseModal}
-      >
-        <label>
-          Name
-          <input type="text" name="name" required />
-        </label>
-
-        <label>
-          Image URL
-          <input type="url" name="link" required />
-        </label>
-
-        <label>
-          Weather
-          <select name="weather" required>
-            <option value="hot">Hot</option>
-            <option value="warm">Warm</option>
-            <option value="cold">Cold</option>
-          </select>
-        </label>
-      </ModalWithForm>
+      <AddGarmentModal
+        isOpen={activeModal === "add-garment"}
+        onClose={closeAllModals}
+        onAddGarment={handleAddGarment}
+      />
 
       <ItemModal
         card={selectedCard}
         isOpen={activeModal === "preview"}
-        onClose={handleCloseModal}
+        onClose={closeAllModals}
       />
     </div>
   );

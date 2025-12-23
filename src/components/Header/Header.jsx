@@ -1,5 +1,6 @@
-import { useState } from "react";
 import "./Header.css";
+import logo from "../../assets/logo.svg";
+import avatar from "../../assets/Avatar.svg";
 
 const Header = ({ onAddClothes, city }) => {
   const currentDate = new Date().toLocaleString("default", {
@@ -7,38 +8,28 @@ const Header = ({ onAddClothes, city }) => {
     day: "numeric",
   });
 
-  const [isMobileMenuOpened, setIsMobileMenuOpened] = useState(false);
-
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpened(!isMobileMenuOpened);
-  };
-
   return (
     <header className="header">
       <div className="header__left">
-        <div className="header__logo">WTWR</div>
+        <img src={logo} alt="WTWR logo" className="header__logo" />
         <p className="header__date-and-location">
-          {currentDate} • {city || "Unknown location"}
+          {currentDate}, {city || "New York"}
         </p>
       </div>
 
-      <button className="header__menu-button" onClick={toggleMobileMenu}>
-        ☰
-      </button>
-
-      <div
-        className={`header__right ${
-          isMobileMenuOpened ? "header__right_opened" : ""
-        }`}
-      >
-        <button className="header__add-clothes-button" onClick={onAddClothes}>
-          + Add clothes
-        </button>
-
-        <div className="header__user">
-          <span className="header__username">Gokhan</span>
-          <div className="header__avatar"></div>
+      <div className="header__right">
+        <div className="header__actions">
+          <button
+            type="button"
+            className="header__add-clothes-button"
+            onClick={onAddClothes}
+          >
+            + Add clothes
+          </button>
+          <span className="header__username">Gokhan Eldeleklioglu</span>
         </div>
+
+        <img src={avatar} alt="User avatar" className="header__avatar" />
       </div>
     </header>
   );

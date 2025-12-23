@@ -1,6 +1,7 @@
 import WeatherCard from "./WeatherCard/WeatherCard.jsx";
 import ItemCard from "./ItemCard/ItemCard.jsx";
 import { getWeatherCondition } from "../utils/weatherApi.js";
+import "./Main.css";
 
 const Main = ({ clothingItems, onCardClick, temperature }) => {
   const isValidTemperature = typeof temperature === "number";
@@ -14,15 +15,19 @@ const Main = ({ clothingItems, onCardClick, temperature }) => {
   return (
     <main className="main">
       <WeatherCard temperature={temperature} />
-      <ul className="cards">
-        {filteredItems.map((item) => (
-          <ItemCard key={item._id} item={item} onCardClick={onCardClick} />
-        ))}
-      </ul>
+
+      <section className="clothes-section">
+        <p className="clothes-section__title">
+          Today is {Math.round(temperature)}°F / You may want to wear:
+        </p>
+        <ul className="cards">
+          {filteredItems.map((item) => (
+            <ItemCard key={item._id} item={item} onCardClick={onCardClick} />
+          ))}
+        </ul>
+      </section>
     </main>
   );
 };
-
-<p style={{ color: "red" }}>MAIN RENDER EDİLDİ</p>;
 
 export default Main;

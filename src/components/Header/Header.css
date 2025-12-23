@@ -1,23 +1,63 @@
-.header__menu-button {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 28px;
-  cursor: pointer;
+.header {
+  max-width: 1360px;
+  height: 40px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 32px 40px;
+  box-sizing: border-box;
+  color: #000000;
 }
 
-@media screen and (max-width: 768px) {
-  .header__menu-button {
-    display: block;
-  }
+.header__left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
 
-  .header__right {
-    display: none;
-  }
+.header__logo {
+  height: 24px;
+  display: block;
+}
 
-  .header__right_opened {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
+.header__date-and-location {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0;
+
+  width: 160px;
+  height: 24px;
+  white-space: nowrap;
+}
+
+.header__right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header__add-clothes-button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: #000000;
+}
+
+.header__user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header__avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #ccc;
 }

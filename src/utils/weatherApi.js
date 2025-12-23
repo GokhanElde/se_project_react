@@ -6,25 +6,12 @@ const longitude = "-71.0589";
 export const getWeather = () => {
   return fetch(
     `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${apiKey}`
-  )
-    .then((res) => {
-      if (!res.ok) {
-        throw new Error("Weather API error");
-      }
-      return res.json();
-    })
-    .then((data) => {
-      return {
-        temperature: Number(data.main.temp),
-        city: data.name,
-      };
-    })
-    .catch(() => {
-      return {
-        temperature: null,
-        city: "",
-      };
-    });
+  ).then((res) => {
+    if (!res.ok) {
+      throw new Error("Weather API error");
+    }
+    return res.json();
+  });
 };
 
 export const getWeatherCondition = (temperature) => {
