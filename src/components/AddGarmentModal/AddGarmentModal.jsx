@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import "./AddGarmentModal.css";
 
 const AddGarmentModal = ({ isOpen, onClose, onAddGarment }) => {
   const [name, setName] = useState("");
@@ -20,6 +21,7 @@ const AddGarmentModal = ({ isOpen, onClose, onAddGarment }) => {
       onClose={onClose}
       onSubmit={handleSubmit}
     >
+      <label className="modal__label">Name</label>
       <input
         className="modal__input"
         type="text"
@@ -28,7 +30,7 @@ const AddGarmentModal = ({ isOpen, onClose, onAddGarment }) => {
         onChange={(e) => setName(e.target.value)}
         required
       />
-
+      <label className="modal__label">Image</label>
       <input
         className="modal__input"
         type="url"
@@ -37,7 +39,7 @@ const AddGarmentModal = ({ isOpen, onClose, onAddGarment }) => {
         onChange={(e) => setImageUrl(e.target.value)}
         required
       />
-
+      <p className="modal__label">Select the weather type:</p>
       <div className="modal__radio-group">
         <label className="modal__radio">
           <input

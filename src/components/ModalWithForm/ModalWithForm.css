@@ -14,12 +14,11 @@
 }
 
 .modal__content {
-  background-color: #ffffff;
+  background-color: #fff;
   width: 496px;
   min-height: 436px;
-  padding: 16px;
+  padding: 28px;
   border-radius: 20px;
-  border: 1px solid #000;
   box-sizing: border-box;
   position: relative;
 }
@@ -32,15 +31,13 @@
   border: none;
   font-size: 20px;
   cursor: pointer;
+  color: rgba(0, 0, 0, 0.3);
 }
 
 .modal__title {
-  top: 28px;
-  left: 28px;
   margin: 0 0 24px;
   font-size: 16px;
   font-weight: 500;
-  font-type: bold;
 }
 
 .modal__form {
@@ -48,45 +45,12 @@
   flex-direction: column;
 }
 
-.modal__input {
-  border: none;
-  border-bottom: 1px solid #000;
-  padding: 8px 0;
-  margin-bottom: 24px;
-  font-size: 16px;
-  outline: none;
-}
-
-.modal__input::placeholder {
-  color: #999;
-}
-
-.modal__radio-group {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-bottom: 24px;
-}
-
 .modal__submit {
-  margin-top: auto;
   width: 124px;
   height: 36px;
   background-color: rgba(0, 0, 0, 0.3);
   border: none;
   border-radius: 4px;
   font-size: 16px;
-  cursor: not-allowed;
-}
-
-.modal__submit_active {
-  background-color: #000;
-  color: #fff;
-  cursor: pointer;
-}
-
-.modal__radio {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  white-space: nowrap;
 }
