@@ -1,15 +1,14 @@
 .header {
   max-width: 1360px;
   height: 40px;
-  margin: 0 auto;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-left: 40px;
 
-  padding: 32px 40px;
   box-sizing: border-box;
-  color: #000000;
+
+  color: #000;
 }
 
 .header__left {
@@ -38,6 +37,11 @@
 .header__right {
   display: flex;
   align-items: center;
+}
+
+.header__actions {
+  display: flex;
+  align-items: center;
   gap: 20px;
 }
 
@@ -49,10 +53,19 @@
   color: #000000;
 }
 
+.header__profile-link {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  text-decoration: none;
+  color: #000;
+}
+
 .header__user {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 20px;
 }
 
 .header__avatar {

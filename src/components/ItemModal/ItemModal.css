@@ -34,6 +34,7 @@
 }
 
 .modal__title {
+  font-size: 20px;
   padding-left: 32px;
   padding-top: 16px;
   padding-bottom: 0;
@@ -41,9 +42,11 @@
 }
 
 .modal__weather {
-  padding-left: 32px;
-  margin-top: -12px;
-  margin-bottom: 0;
+  margin: 8px 0 0;
+  padding: 0 24px 24px;
+
+  font-size: 14px;
+  color: #000;
 }
 
 .modal__close {
@@ -54,4 +57,48 @@
   border: none;
   font-size: 18px;
   cursor: pointer;
+}
+
+.modal__content_type_image {
+  position: relative;
+}
+
+.modal__footer {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.modal__footer > .title,
+.modal__footer > .weather {
+  display: flex;
+  height: 56px;
+}
+
+.modal__footer > .title {
+  justify-content: space-between;
+}
+
+.modal__footer > .weather {
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.modal__footer > .weather > .modal__title {
+  padding-top: 0;
+}
+
+.modal__delete {
+  background: none;
+  border: none;
+
+  color: #ff4d00;
+  font-size: 16px;
+  font-weight: 700;
+
+  cursor: pointer;
+  padding: 0;
+  padding-right: 32px;
 }

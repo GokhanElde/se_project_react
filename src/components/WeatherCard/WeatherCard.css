@@ -1,17 +1,21 @@
 .weather {
-  max-width: 1360px;
-  margin: 0 auto;
+  margin-top: 28px;
+  box-sizing: border-box;
 }
 
 .weather__bar {
-  position: relative;
+  max-width: 1360px;
+  padding: 0 40px;
   height: 80px;
+
   background-color: #00a3ff;
   border-radius: 16px;
   overflow: hidden;
+
   display: flex;
   align-items: center;
-  padding: 0 40px;
+
+  position: relative;
 }
 
 .weather__temp {
@@ -19,6 +23,7 @@
   font-size: 36px;
   font-weight: 700;
   color: #ffffff;
+
   margin-left: 16px;
   z-index: 2;
 }
@@ -27,7 +32,7 @@
   position: absolute;
   width: 60px;
   height: 60px;
-  right: -10px;
+  right: 0px;
   top: -10px;
 }
 

@@ -1,9 +1,12 @@
+import "./Footer.css";
+
 const Footer = () => {
   const year = new Date().getFullYear();
 
   return (
     <footer className="footer">
-      <p>© {year} What to Wear (WTWR)</p>
+      <p className="footer__author">Developed by Gokhan Eldeleklioglu</p>
+      <p className="footer__year">&copy; {year}</p>
     </footer>
   );
 };

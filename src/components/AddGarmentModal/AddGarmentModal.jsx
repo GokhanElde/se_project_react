@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./AddGarmentModal.css";
+import { addItem } from "../../utils/api";
 
 const AddGarmentModal = ({ isOpen, onClose, onAddGarment }) => {
   const [name, setName] = useState("");
@@ -9,7 +10,16 @@ const AddGarmentModal = ({ isOpen, onClose, onAddGarment }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddGarment({ name, imageUrl, weather });
+    addItem({ name, imageUrl, weather })
+      .then((newItem) => {
+        onAddGarment(newItem);
+        setName("");
+        setImageUrl("");
+        setWeather("");
+      })
+      .catch((err) => {
+        console.error("Error adding item:", err);
+      });
   };
 
   return (
@@ -21,8 +31,11 @@ const AddGarmentModal = ({ isOpen, onClose, onAddGarment }) => {
       onClose={onClose}
       onSubmit={handleSubmit}
     >
-      <label className="modal__label">Name</label>
+      <label className="modal__label" htmlFor="garment-name">
+        Name
+      </label>
       <input
+        id="garment-name"
         className="modal__input"
         type="text"
         placeholder="Name"
@@ -30,8 +43,11 @@ const AddGarmentModal = ({ isOpen, onClose, onAddGarment }) => {
         onChange={(e) => setName(e.target.value)}
         required
       />
-      <label className="modal__label">Image</label>
+      <label className="modal__label" htmlFor="garment-image">
+        Image
+      </label>
       <input
+        id="garment-image"
         className="modal__input"
         type="url"
         placeholder="Image URL"

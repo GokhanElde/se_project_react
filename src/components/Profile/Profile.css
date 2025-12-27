@@ -1,0 +1,16 @@
+.profile {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.sidebar {
+  width: 325px;
+  flex-shrink: 0;
+  padding-top: 32px;
+}
+
+.clothes-section {
+  flex-grow: 1;
+  padding-top: 32px;
+}

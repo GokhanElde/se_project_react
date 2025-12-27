@@ -1,7 +1,7 @@
 import "./ItemModal.css";
 
-const ItemModal = ({ card, isOpen, onClose }) => {
-  if (!card) return null;
+const ItemModal = ({ card, isOpen, onClose, onDelete }) => {
+  if (!isOpen || !card) return null;
 
   const handleOverlayClick = (e) => {
     if (e.target.classList.contains("modal")) {
@@ -15,14 +15,28 @@ const ItemModal = ({ card, isOpen, onClose }) => {
       onClick={handleOverlayClick}
     >
       <div className="modal__content modal__content_type_image">
-        <button className="modal__close" onClick={onClose}>
+        <button type="button" className="modal__close" onClick={onClose}>
           ✕
         </button>
 
-        <img src={card.link} alt={card.name} className="modal__image" />
+        <img src={card.imageUrl} alt={card.name} className="modal__image" />
 
-        <h2 className="modal__title">{card.name}</h2>
-        <p className="modal__weather">Weather: {card.weather}</p>
+        <div className="modal__footer">
+          <div className="title">
+            <h2 className="modal__title">{card.name}</h2>
+
+            <button
+              type="button"
+              className="modal__delete"
+              onClick={() => onDelete(card)}
+            >
+              Delete item
+            </button>
+          </div>
+          <div className="weather">
+            <h2 className="modal__title">Weather: {card.weather}</h2>
+          </div>
+        </div>
       </div>
     </div>
   );

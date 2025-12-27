@@ -1,13 +1,16 @@
 .page {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding-top: 32px;
   background-color: #f3f3f3;
+
   min-height: 100vh;
   box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
 }
 
-.main {
-  max-width: 1440px;
-  margin: 0 auto;
+.content {
+  flex-grow: 1;
 }

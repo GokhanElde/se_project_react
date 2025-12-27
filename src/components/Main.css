@@ -1,11 +1,4 @@
 .main {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 40px;
-  box-sizing: border-box;
-}
-
-.clothes-section {
   max-width: 1360px;
   margin: 0 auto;
 }
@@ -17,14 +10,4 @@
   line-height: 24px;
   color: #000000;
   margin: 32px 0 24px;
-}
-
-.cards {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-
-  display: grid;
-  grid-template-columns: repeat(4, 325px);
-  gap: 20px;
 }
