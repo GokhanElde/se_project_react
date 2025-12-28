@@ -16,6 +16,7 @@ const AddGarmentModal = ({ isOpen, onClose, onAddGarment }) => {
         setName("");
         setImageUrl("");
         setWeather("");
+        onClose();
       })
       .catch((err) => {
         console.error("Error adding item:", err);

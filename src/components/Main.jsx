@@ -8,23 +8,25 @@ import "./Main.css";
 const Main = ({ clothingItems, onCardClick, temperature }) => {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
 
-  if (!temperature) {
-    return null;
-  }
+  const hasTemperature = temperature && typeof temperature.F === "number";
 
-  const filteredItems = clothingItems.filter(
-    (item) => item.weather === getWeatherCondition(temperature.F)
-  );
+  const filteredItems = hasTemperature
+    ? clothingItems.filter(
+        (item) => item.weather === getWeatherCondition(temperature.F)
+      )
+    : clothingItems;
 
   return (
     <main className="main">
       <WeatherCard temperature={temperature} />
 
       <section className="clothes-section">
-        <p className="clothes-section__title">
-          Today is {temperature[currentTemperatureUnit]}°
-          {currentTemperatureUnit} / You may want to wear:
-        </p>
+        {hasTemperature && (
+          <p className="clothes-section__title">
+            Today is {temperature[currentTemperatureUnit]}°
+            {currentTemperatureUnit} / You may want to wear:
+          </p>
+        )}
 
         <ul className="cards">
           {filteredItems.map((item) => (

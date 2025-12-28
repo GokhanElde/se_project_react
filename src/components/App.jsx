@@ -36,7 +36,6 @@ function App() {
   };
 
   const handleOpenAddGarmentModal = () => {
-    console.log("ADD CLOTHES CLICKED");
     setActiveModal("add-garment");
   };
 
@@ -45,21 +44,34 @@ function App() {
   };
 
   useEffect(() => {
-    getWeather().then((data) => {
-      setWeatherData({
-        temperature: {
-          F: data.main?.temp ?? null,
-          C: data.main?.temp
-            ? Math.round(((data.main.temp - 32) * 5) / 9)
-            : null,
-        },
-        city: data.name ?? "Unknown location",
+    getWeather()
+      .then((data) => {
+        setWeatherData({
+          temperature: {
+            F: data.main?.temp ?? null,
+            C: data.main?.temp
+              ? Math.round(((data.main.temp - 32) * 5) / 9)
+              : null,
+          },
+          city: data.name ?? "Unknown location",
+        });
+      })
+      .catch((err) => {
+        console.error("Weather API error:", err);
+        setWeatherData({
+          temperature: null,
+          city: "Unknown location",
+        });
       });
-    });
   }, []);
 
   useEffect(() => {
-    getItems().then(setClothingItems);
+    getItems()
+      .then(setClothingItems)
+      .catch((err) => {
+        console.error("Error fetching items:", err);
+        setClothingItems([]);
+      });
   }, []);
 
   return (
