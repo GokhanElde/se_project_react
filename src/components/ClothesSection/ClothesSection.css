@@ -1,6 +1,5 @@
 .clothes-section {
   max-width: 1015px;
-  margin-left: -40px;
 }
 
 .clothes-section__header {
@@ -18,6 +17,7 @@
   line-height: 24px;
   color: #000;
   margin: 0;
+  margin-left: 40px;
 }
 
 .clothes-section__add-new {
@@ -41,4 +41,6 @@
   display: grid;
   grid-template-columns: repeat(3, 325px);
   gap: 20px;
+  margin-left: 40px;
+  margin-top: 34px;
 }

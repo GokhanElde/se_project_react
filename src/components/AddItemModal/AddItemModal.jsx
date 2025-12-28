@@ -1,6 +1,6 @@
-import "./ItemModal.css";
+import "./AddItemModal.css";
 
-const ItemModal = ({ card, isOpen, onClose, onDelete }) => {
+const AddItemModal = ({ card, isOpen, onClose, onDelete }) => {
   if (!isOpen || !card) return null;
 
   const handleOverlayClick = (e) => {
@@ -42,4 +42,4 @@ const ItemModal = ({ card, isOpen, onClose, onDelete }) => {
   );
 };
 
-export default ItemModal;
+export default AddItemModal;

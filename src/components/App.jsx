@@ -4,7 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import Header from "./Header/Header.jsx";
 import Main from "./Main.jsx";
 import Footer from "./Footer/Footer.jsx";
-import ItemModal from "./ItemModal/ItemModal.jsx";
+import AddItemModal from "./AddItemModal/AddItemModal.jsx";
 import AddGarmentModal from "./AddGarmentModal/AddGarmentModal.jsx";
 import Profile from "./Profile/Profile.jsx";
 import ConfirmDeleteModal from "./ConfirmDeleteModal/ConfirmDeleteModal";
@@ -112,7 +112,7 @@ function App() {
           onAddGarment={(item) => setClothingItems((prev) => [item, ...prev])}
         />
 
-        <ItemModal
+        <AddItemModal
           card={selectedCard}
           isOpen={activeModal === "preview"}
           onClose={() => {
