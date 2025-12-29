@@ -1,21 +1,20 @@
-import { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./AddGarmentModal.css";
-import { addItem } from "../../utils/api";
+import { useForm } from "../../hooks/useForm";
 
 const AddGarmentModal = ({ isOpen, onClose, onAddGarment }) => {
-  const [name, setName] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
-  const [weather, setWeather] = useState("");
+  const { values, handleChange, resetForm } = useForm({
+    name: "",
+    imageUrl: "",
+    weather: "",
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addItem({ name, imageUrl, weather })
-      .then((newItem) => {
-        onAddGarment(newItem);
-        setName("");
-        setImageUrl("");
-        setWeather("");
+
+    onAddGarment(values)
+      .then(() => {
+        resetForm();
         onClose();
       })
       .catch((err) => {
@@ -37,25 +36,29 @@ const AddGarmentModal = ({ isOpen, onClose, onAddGarment }) => {
       </label>
       <input
         id="garment-name"
+        name="name"
         className="modal__input"
         type="text"
         placeholder="Name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
+        value={values.name}
+        onChange={handleChange}
         required
       />
+
       <label className="modal__label" htmlFor="garment-image">
         Image
       </label>
       <input
         id="garment-image"
+        name="imageUrl"
         className="modal__input"
         type="url"
         placeholder="Image URL"
-        value={imageUrl}
-        onChange={(e) => setImageUrl(e.target.value)}
+        value={values.imageUrl}
+        onChange={handleChange}
         required
       />
+
       <p className="modal__label">Select the weather type:</p>
       <div className="modal__radio-group">
         <label className="modal__radio">
@@ -63,8 +66,8 @@ const AddGarmentModal = ({ isOpen, onClose, onAddGarment }) => {
             type="radio"
             name="weather"
             value="hot"
-            checked={weather === "hot"}
-            onChange={(e) => setWeather(e.target.value)}
+            checked={values.weather === "hot"}
+            onChange={handleChange}
           />
           Hot
         </label>
@@ -74,8 +77,8 @@ const AddGarmentModal = ({ isOpen, onClose, onAddGarment }) => {
             type="radio"
             name="weather"
             value="warm"
-            checked={weather === "warm"}
-            onChange={(e) => setWeather(e.target.value)}
+            checked={values.weather === "warm"}
+            onChange={handleChange}
           />
           Warm
         </label>
@@ -85,8 +88,8 @@ const AddGarmentModal = ({ isOpen, onClose, onAddGarment }) => {
             type="radio"
             name="weather"
             value="cold"
-            checked={weather === "cold"}
-            onChange={(e) => setWeather(e.target.value)}
+            checked={values.weather === "cold"}
+            onChange={handleChange}
           />
           Cold
         </label>

@@ -1,12 +1,11 @@
-import "./AddItemModal.css";
+import "./ItemModal.css";
+import closeIcon from "../../assets/close.svg";
 
-const AddItemModal = ({ card, isOpen, onClose, onDelete }) => {
+const ItemModal = ({ card, isOpen, onClose, onDelete }) => {
   if (!isOpen || !card) return null;
 
   const handleOverlayClick = (e) => {
-    if (e.target.classList.contains("modal")) {
-      onClose();
-    }
+    if (e.target.classList.contains("modal")) onClose();
   };
 
   return (
@@ -16,7 +15,7 @@ const AddItemModal = ({ card, isOpen, onClose, onDelete }) => {
     >
       <div className="modal__content modal__content_type_image">
         <button type="button" className="modal__close" onClick={onClose}>
-          ✕
+          <img src={closeIcon} alt="Close" />
         </button>
 
         <img src={card.imageUrl} alt={card.name} className="modal__image" />
@@ -24,7 +23,6 @@ const AddItemModal = ({ card, isOpen, onClose, onDelete }) => {
         <div className="modal__footer">
           <div className="title">
             <h2 className="modal__title">{card.name}</h2>
-
             <button
               type="button"
               className="modal__delete"
@@ -42,4 +40,4 @@ const AddItemModal = ({ card, isOpen, onClose, onDelete }) => {
   );
 };
 
-export default AddItemModal;
+export default ItemModal;

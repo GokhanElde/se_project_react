@@ -1,21 +1,17 @@
 import { useEffect } from "react";
 import "./ConfirmDeleteModal.css";
+import closeIcon from "../../assets/close.svg";
 
 const ConfirmDeleteModal = ({ isOpen, onClose, onConfirm }) => {
   useEffect(() => {
     if (!isOpen) return;
 
     const handleEsc = (e) => {
-      if (e.key === "Escape") {
-        onClose();
-      }
+      if (e.key === "Escape") onClose();
     };
 
     document.addEventListener("keydown", handleEsc);
-
-    return () => {
-      document.removeEventListener("keydown", handleEsc);
-    };
+    return () => document.removeEventListener("keydown", handleEsc);
   }, [isOpen, onClose]);
 
   if (!isOpen) return null;
@@ -27,7 +23,7 @@ const ConfirmDeleteModal = ({ isOpen, onClose, onConfirm }) => {
         onClick={(e) => e.stopPropagation()}
       >
         <button type="button" className="modal__close" onClick={onClose}>
-          ✕
+          <img src={closeIcon} alt="Close" />
         </button>
 
         <p className="modal__title">
@@ -40,7 +36,6 @@ const ConfirmDeleteModal = ({ isOpen, onClose, onConfirm }) => {
           <button type="button" className="modal__confirm" onClick={onConfirm}>
             Yes, delete item
           </button>
-
           <button type="button" className="modal__cancel" onClick={onClose}>
             Cancel
           </button>
