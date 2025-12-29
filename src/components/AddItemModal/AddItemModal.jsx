@@ -1,3 +1,7 @@
 import ItemModal from "../ItemModal/ItemModal";
 
-export default ItemModal;
+const AddItemModal = (props) => {
+  return <ItemModal {...props} />;
+};
+
+export default AddItemModal;
