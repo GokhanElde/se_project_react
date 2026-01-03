@@ -9,6 +9,10 @@
   font-family: "Cabinet Grotesk", sans-serif;
 }
 
+.modal__input {
+  background-color: #fff;
+}
+
 .modal_is-opened {
   display: flex;
 }
@@ -48,9 +52,19 @@
 .modal__submit {
   width: 124px;
   height: 36px;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: #000;
   border: none;
   border-radius: 4px;
   font-size: 16px;
   white-space: nowrap;
+}
+
+.modal__submit:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+
+.modal__submit:disabled {
+  background-color: rgba(0, 0, 0, 0.3);
+  cursor: pointer;
 }

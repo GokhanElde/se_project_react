@@ -1,6 +1,7 @@
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./AddGarmentModal.css";
 import { useForm } from "../../hooks/useForm";
+import { useEffect } from "react";
 
 const AddGarmentModal = ({ isOpen, onClose, onAddGarment }) => {
   const { values, handleChange, resetForm } = useForm({
@@ -8,6 +9,12 @@ const AddGarmentModal = ({ isOpen, onClose, onAddGarment }) => {
     imageUrl: "",
     weather: "",
   });
+
+  useEffect(() => {
+    if (!isOpen) {
+      resetForm();
+    }
+  }, [isOpen, resetForm]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
