@@ -39,3 +39,5 @@ The app fetches the current weather data for a selected location and displays cl
 
 Live demo:  
 https://GokhanElde.github.io/se_project_react/
+
+https://drive.google.com/file/d/19BIuBzfDE68R2THKkeN7Og-8mkQggqMz/view?usp=drive_link
