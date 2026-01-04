@@ -25,11 +25,12 @@ const AddItemModal = ({ isOpen, onClose, onAddGarment }) => {
       onClose={onClose}
       onSubmit={handleSubmit}
     >
-      <label className="modal__label">
+      <label className="add_item_modal__label">
         Name
         <input
           name="name"
-          className="modal__input"
+          placeholder="Name"
+          className="add_item_modal__input"
           type="text"
           value={values.name}
           onChange={handleChange}
@@ -37,11 +38,12 @@ const AddItemModal = ({ isOpen, onClose, onAddGarment }) => {
         />
       </label>
 
-      <label className="modal__label">
+      <label className="add_item_modal__label">
         Image
         <input
           name="imageUrl"
-          className="modal__input"
+          placeholder="Image URL"
+          className="add_item_modal__input"
           type="url"
           value={values.imageUrl}
           onChange={handleChange}
@@ -49,9 +51,9 @@ const AddItemModal = ({ isOpen, onClose, onAddGarment }) => {
         />
       </label>
 
-      <p className="modal__label">Select the weather type:</p>
+      <p className="add_item_modal__label">Select the weather type:</p>
 
-      <label className="modal__radio">
+      <label className="add_item_modal__radio">
         <input
           type="radio"
           name="weather"
@@ -62,7 +64,7 @@ const AddItemModal = ({ isOpen, onClose, onAddGarment }) => {
         Hot
       </label>
 
-      <label className="modal__radio">
+      <label className="add_item_modal__radio">
         <input
           type="radio"
           name="weather"
@@ -73,7 +75,7 @@ const AddItemModal = ({ isOpen, onClose, onAddGarment }) => {
         Warm
       </label>
 
-      <label className="modal__radio">
+      <label className="add_item_modal__radio">
         <input
           type="radio"
           name="weather"

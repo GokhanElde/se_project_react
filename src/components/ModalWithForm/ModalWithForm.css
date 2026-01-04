@@ -36,10 +36,12 @@
   color: rgba(0, 0, 0, 0.3);
 }
 
-.modal__title {
+.modal_with_form__title {
   margin: 0 0 24px;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 700;
+  padding-left: 0;
+  text-align: left;
 }
 
 .modal__form {
@@ -59,6 +61,7 @@
   border-radius: 4px;
   font-size: 16px;
   white-space: nowrap;
+  margin-top: 24px;
 }
 
 .modal__submit:hover {

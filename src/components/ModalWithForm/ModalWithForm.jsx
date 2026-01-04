@@ -32,7 +32,7 @@ const ModalWithForm = ({
           ✕
         </button>
 
-        <h2 className="modal__title">{title}</h2>
+        <h2 className="modal_with_form__title">{title}</h2>
 
         <form className="modal__form" name={name} onSubmit={onSubmit}>
           {children}
