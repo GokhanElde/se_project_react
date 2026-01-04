@@ -52,35 +52,51 @@ function App() {
   };
 
   const handleAddItem = (data) => {
-    return addItem(data).then((newItem) => {
-      setClothingItems((prev) => [newItem, ...prev]);
-      closeAllModals();
-    });
+    return addItem(data)
+      .then((newItem) => {
+        setClothingItems((prev) => [newItem, ...prev]);
+        closeAllModals();
+      })
+      .catch((err) => {
+        console.error("Failed to add item:", err);
+      });
   };
 
   const handleConfirmDelete = () => {
-    return deleteItem(itemToDelete._id).then(() => {
-      setClothingItems((prev) =>
-        prev.filter((item) => item._id !== itemToDelete._id)
-      );
-      closeAllModals();
-    });
+    return deleteItem(itemToDelete._id)
+      .then(() => {
+        setClothingItems((prev) =>
+          prev.filter((item) => item._id !== itemToDelete._id)
+        );
+        closeAllModals();
+      })
+      .catch((err) => {
+        console.error("Failed to delete item:", err);
+      });
   };
 
   useEffect(() => {
-    getWeather().then((data) => {
-      setWeatherData({
-        temperature: {
-          F: data.main.temp,
-          C: Math.round(((data.main.temp - 32) * 5) / 9),
-        },
-        city: data.name,
+    getWeather()
+      .then((data) => {
+        setWeatherData({
+          temperature: {
+            F: data.main.temp,
+            C: Math.round(((data.main.temp - 32) * 5) / 9),
+          },
+          city: data.name,
+        });
+      })
+      .catch((err) => {
+        console.error("Failed to fetch weather:", err);
       });
-    });
   }, []);
 
   useEffect(() => {
-    getItems().then(setClothingItems);
+    getItems()
+      .then(setClothingItems)
+      .catch((err) => {
+        console.error("Failed to fetch items:", err);
+      });
   }, []);
 
   return (
@@ -108,7 +124,7 @@ function App() {
                 <Profile
                   clothingItems={clothingItems}
                   onCardClick={handleCardClick}
-                  openAddClothes={handleOpenAddItemModal}
+                  onAddClothes={handleOpenAddItemModal}
                 />
               }
             />

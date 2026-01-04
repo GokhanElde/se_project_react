@@ -11,9 +11,14 @@ const AddItemModal = ({ isOpen, onClose, onAddGarment }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddGarment(values).then(() => {
-      resetForm();
-    });
+
+    onAddGarment(values)
+      .then(() => {
+        resetForm();
+      })
+      .catch((err) => {
+        console.error("Failed to add item:", err);
+      });
   };
 
   return (
