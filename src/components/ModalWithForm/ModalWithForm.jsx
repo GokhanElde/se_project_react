@@ -20,17 +20,14 @@ const ModalWithForm = ({
     };
 
     document.addEventListener("keydown", handleEsc);
-
-    return () => {
-      document.removeEventListener("keydown", handleEsc);
-    };
+    return () => document.removeEventListener("keydown", handleEsc);
   }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 
   return (
-    <div className={`modal modal_type_${name}`} onClick={onClose}>
-      <div className="modal__content" onClick={(e) => e.stopPropagation()}>
+    <div className={`modal modal_is-opened modal_type_${name}`}>
+      <div className="modal__content">
         <button className="modal__close" onClick={onClose} type="button">
           ✕
         </button>
