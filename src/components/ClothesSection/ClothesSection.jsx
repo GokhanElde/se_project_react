@@ -9,7 +9,12 @@ const ClothesSection = ({ clothingItems, onCardClick, onAddClothes }) => {
         <button
           type="button"
           className="clothes-section__add-new"
-          onClick={onAddClothes}
+          onClick={() => {
+            if (!onAddClothes) {
+              return console.error("onAddClothes is not defined");
+            }
+            onAddClothes();
+          }}
         >
           + Add new
         </button>
