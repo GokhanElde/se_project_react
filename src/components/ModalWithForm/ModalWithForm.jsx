@@ -9,6 +9,7 @@ const ModalWithForm = ({
   isOpen,
   onClose,
   onSubmit,
+  submitDisabled = false,
 }) => {
   useEffect(() => {
     if (!isOpen) return;
@@ -36,7 +37,11 @@ const ModalWithForm = ({
 
         <form className="modal__form" name={name} onSubmit={onSubmit}>
           {children}
-          <button type="submit" className="modal__submit">
+          <button
+            type="submit"
+            className="modal__submit"
+            disabled={submitDisabled}
+          >
             {buttonText}
           </button>
         </form>

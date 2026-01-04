@@ -24,6 +24,7 @@ const AddItemModal = ({ isOpen, onClose, onAddGarment }) => {
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={handleSubmit}
+      submitDisabled={!(values.name && values.imageUrl && values.weather)}
     >
       <label className="add_item_modal__label">
         Name
