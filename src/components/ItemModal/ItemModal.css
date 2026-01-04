@@ -62,19 +62,18 @@
   box-sizing: border-box;
 }
 .modal__footer > .title,
-.modal__footer > .weather {
+.modal__footer > .weather_text {
   display: flex;
-
   height: 56px;
 }
 .modal__footer > .title {
   justify-content: space-between;
 }
-.modal__footer > .weather {
+.modal__footer > .weather_text {
   justify-content: flex-start;
   width: 100%;
 }
-.modal__footer > .weather > .modal__title {
+.modal__footer > .weather_text > .modal__title {
   padding-top: 0;
 }
 .modal__delete {

@@ -31,7 +31,7 @@ const ItemModal = ({ card, isOpen, onClose, onDelete }) => {
               Delete item
             </button>
           </div>
-          <div className="weather">
+          <div className="weather_text">
             <h2 className="modal__title">Weather: {card.weather}</h2>
           </div>
         </div>
