@@ -1,7 +1,7 @@
 import ItemCard from "../ItemCard/ItemCard";
 import "./ClothesSection.css";
 
-const ClothesSection = ({ clothingItems, onCardClick, onAddClothes }) => {
+const ClothesSection = ({ clothingItems, onCardClick, openAddClothes }) => {
   return (
     <section className="clothes-section">
       <div className="clothes-section__header">
@@ -10,10 +10,10 @@ const ClothesSection = ({ clothingItems, onCardClick, onAddClothes }) => {
           type="button"
           className="clothes-section__add-new"
           onClick={() => {
-            if (!onAddClothes) {
-              return console.error("onAddClothes is not defined");
+            if (!openAddClothes) {
+              return console.error("openAddClothes is not defined");
             }
-            onAddClothes();
+            openAddClothes();
           }}
         >
           + Add new

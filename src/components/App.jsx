@@ -108,7 +108,7 @@ function App() {
                 <Profile
                   clothingItems={clothingItems}
                   onCardClick={handleCardClick}
-                  onAddClothes={handleOpenAddItemModal}
+                  openAddClothes={handleOpenAddItemModal}
                 />
               }
             />
