@@ -21,11 +21,6 @@
 }
 
 .item-card__title {
-  position: absolute;
-  top: 16px;
-  left: 50%;
-  transform: translateX(-50%);
-
   background-color: #ffffff;
   padding: 2px 12px;
   border-radius: 4px;
@@ -35,4 +30,36 @@
   font-size: 16px;
   line-height: 20px;
   color: rgba(0, 0, 0, 0.6);
+}
+
+.item-card__header {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  z-index: 1;
+}
+
+.item-card__like-button {
+  width: 18px;
+  height: 15px;
+
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  cursor: pointer;
+
+  background-image: url("../../assets/like-buttons/like-button.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.item-card__like-button_active {
+  background-image: url("../../assets/like-buttons/like-button-active.svg");
 }

@@ -5,14 +5,14 @@ import { useContext } from "react";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext.js";
 import "./Main.css";
 
-const Main = ({ clothingItems, onCardClick, temperature }) => {
+const Main = ({ clothingItems, onCardClick, temperature, onCardLike }) => {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
 
   const hasTemperature = temperature && typeof temperature.F === "number";
 
   const filteredItems = hasTemperature
     ? clothingItems.filter(
-        (item) => item.weather === getWeatherCondition(temperature.F)
+        (item) => item.weather === getWeatherCondition(temperature.F),
       )
     : clothingItems;
 
@@ -30,7 +30,12 @@ const Main = ({ clothingItems, onCardClick, temperature }) => {
 
         <ul className="cards">
           {filteredItems.map((item) => (
-            <ItemCard key={item._id} item={item} onCardClick={onCardClick} />
+            <ItemCard
+              key={item._id}
+              item={item}
+              onCardClick={onCardClick}
+              onCardLike={onCardLike}
+            />
           ))}
         </ul>
       </section>

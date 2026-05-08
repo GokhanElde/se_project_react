@@ -11,18 +11,40 @@ export const getItems = () => {
   return fetch(`${baseUrl}/items`).then(checkResponse);
 };
 
-export const addItem = ({ name, imageUrl, weather }) => {
+export const addItem = ({ name, imageUrl, weather }, token) => {
   return fetch(`${baseUrl}/items`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({ name, imageUrl, weather }),
   }).then(checkResponse);
 };
 
-export const deleteItem = (id) => {
+export const deleteItem = (id, token) => {
   return fetch(`${baseUrl}/items/${id}`, {
     method: "DELETE",
+    headers: {
+      authorization: `Bearer ${token}`,
+    },
+  }).then(checkResponse);
+};
+
+export const addCardLike = (id, token) => {
+  return fetch(`${baseUrl}/items/${id}/likes`, {
+    method: "PUT",
+    headers: {
+      authorization: `Bearer ${token}`,
+    },
+  }).then(checkResponse);
+};
+
+export const removeCardLike = (id, token) => {
+  return fetch(`${baseUrl}/items/${id}/likes`, {
+    method: "DELETE",
+    headers: {
+      authorization: `Bearer ${token}`,
+    },
   }).then(checkResponse);
 };
