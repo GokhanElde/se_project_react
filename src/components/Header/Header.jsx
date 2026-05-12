@@ -1,6 +1,5 @@
 import "./Header.css";
 import logo from "../../assets/Logo.svg";
-import avatar from "../../assets/Avatar.svg";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
@@ -43,7 +42,7 @@ const Header = ({ onAddClothes, onLogin, onRegister, city, isLoggedIn }) => {
                   {currentUser?.name || "User"}
                 </span>
                 <img
-                  src={avatar}
+                  src={currentUser?.avatar || ""}
                   alt="User avatar"
                   className="header__avatar"
                 />

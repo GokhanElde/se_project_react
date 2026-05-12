@@ -8,10 +8,11 @@ const Profile = ({
   onAddClothes,
   onLogout,
   onCardLike,
+  onEditProfile,
 }) => {
   return (
     <section className="profile">
-      <SideBar onLogout={onLogout} />
+      <SideBar onLogout={onLogout} onEditProfile={onEditProfile} />
       <ClothesSection
         clothingItems={clothingItems}
         onCardClick={onCardClick}

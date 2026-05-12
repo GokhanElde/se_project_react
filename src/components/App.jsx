@@ -12,6 +12,7 @@ import LoginModal from "./LoginModal/LoginModal.jsx";
 import RegisterModal from "./RegisterModal/RegisterModal.jsx";
 import ProtectedRoute from "./ProtectedRoute/ProtectedRoute.jsx";
 import CurrentUserContext from "../contexts/CurrentUserContext";
+import EditProfileModal from "./EditProfileModal/EditProfileModal";
 
 import * as auth from "../utils/auth.js";
 
@@ -22,6 +23,7 @@ import {
   deleteItem,
   addCardLike,
   removeCardLike,
+  updateUser,
 } from "../utils/api";
 import CurrentTemperatureUnitContext from "../contexts/CurrentTemperatureUnitContext";
 
@@ -60,6 +62,10 @@ function App() {
 
   const handleOpenRegisterModal = () => {
     setActiveModal("register");
+  };
+
+  const handleOpenEditProfileModal = () => {
+    setActiveModal("edit-profile");
   };
 
   const handleCardClick = (card) => {
@@ -128,6 +134,19 @@ function App() {
       })
       .catch((err) => {
         console.error("Registration failed:", err);
+      });
+  };
+
+  const handleUpdateUser = (data) => {
+    const token = localStorage.getItem("jwt");
+
+    return updateUser(data, token)
+      .then((updatedUser) => {
+        setCurrentUser(updatedUser);
+        closeAllModals();
+      })
+      .catch((err) => {
+        console.error("Failed to update user:", err);
       });
   };
 
@@ -228,6 +247,7 @@ function App() {
                       onAddClothes={handleOpenAddItemModal}
                       onLogout={handleLogout}
                       onCardLike={handleCardLike}
+                      onEditProfile={handleOpenEditProfileModal}
                     />
                   </ProtectedRoute>
                 }
@@ -266,6 +286,12 @@ function App() {
             isOpen={activeModal === "register"}
             onClose={closeAllModals}
             onRegister={handleRegister}
+          />
+
+          <EditProfileModal
+            isOpen={activeModal === "edit-profile"}
+            onClose={closeAllModals}
+            onUpdateUser={handleUpdateUser}
           />
         </div>
       </CurrentTemperatureUnitContext.Provider>

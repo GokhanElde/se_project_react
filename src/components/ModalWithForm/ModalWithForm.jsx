@@ -11,6 +11,12 @@ const ModalWithForm = ({
   onSubmit,
   submitDisabled = false,
 }) => {
+  const handleOverlayClick = (e) => {
+    if (e.target.classList.contains("modal")) {
+      onClose();
+    }
+  };
+
   useEffect(() => {
     if (!isOpen) return;
 
@@ -27,7 +33,10 @@ const ModalWithForm = ({
   if (!isOpen) return null;
 
   return (
-    <div className={`modal modal_is-opened modal_type_${name}`}>
+    <div
+      className={`modal modal_is-opened modal_type_${name}`}
+      onClick={handleOverlayClick}
+    >
       <div className="modal__content">
         <button className="modal__close" onClick={onClose} type="button">
           ✕

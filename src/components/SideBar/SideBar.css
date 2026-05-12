@@ -1,8 +1,13 @@
 .sidebar {
   display: flex;
+  flex-direction: column;
+  margin-left: 40px;
+}
+
+.sidebar__user-info {
+  display: flex;
   align-items: center;
   gap: 16px;
-  margin-left: 40px;
 }
 
 .sidebar__avatar {
@@ -12,6 +17,39 @@
 }
 
 .sidebar__username {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #000;
+  margin: 0;
+}
+
+.sidebar__edit-profile {
+  margin-top: 24px;
+
+  border: none;
+  background: transparent;
+  padding: 0;
+
+  text-align: left;
+  cursor: pointer;
+
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #000;
+}
+
+.sidebar__logout {
+  margin-top: 8px;
+
+  border: none;
+  background: transparent;
+  padding: 0;
+
+  text-align: left;
+  cursor: pointer;
+
   font-family: "Cabinet Grotesk", sans-serif;
   font-size: 20px;
   font-weight: 700;
