@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import "./ModalWithForm.css";
+import closeIcon from "../../assets/close.svg";
 
 const ModalWithForm = ({
   children,
@@ -10,6 +11,8 @@ const ModalWithForm = ({
   onClose,
   onSubmit,
   submitDisabled = false,
+  secondaryButtonText,
+  onSecondaryClick,
 }) => {
   const handleOverlayClick = (e) => {
     if (e.target.classList.contains("modal")) {
@@ -39,20 +42,32 @@ const ModalWithForm = ({
     >
       <div className="modal__content">
         <button className="modal__close" onClick={onClose} type="button">
-          ✕
+          <img src={closeIcon} alt="Close" />
         </button>
 
         <h2 className="modal_with_form__title">{title}</h2>
 
         <form className="modal__form" name={name} onSubmit={onSubmit}>
           {children}
-          <button
-            type="submit"
-            className="modal__submit"
-            disabled={submitDisabled}
-          >
-            {buttonText}
-          </button>
+          <div className="modal__buttons">
+            <button
+              type="submit"
+              className="modal__submit"
+              disabled={submitDisabled}
+            >
+              {buttonText}
+            </button>
+
+            {secondaryButtonText && (
+              <button
+                type="button"
+                className="modal__secondary-button"
+                onClick={onSecondaryClick}
+              >
+                or {secondaryButtonText}
+              </button>
+            )}
+          </div>
         </form>
       </div>
     </div>

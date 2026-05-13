@@ -63,3 +63,11 @@
 .item-card__like-button_active {
   background-image: url("../../assets/like-buttons/like-button-active.svg");
 }
+
+@media screen and (max-width: 600px) {
+  .item-card {
+    width: 100%;
+    max-width: 325px;
+    height: 328px;
+  }
+}

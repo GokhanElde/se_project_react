@@ -2,7 +2,7 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./LoginModal.css";
 import { useForm } from "../../hooks/useForm";
 
-const LoginModal = ({ isOpen, onClose, onLogin }) => {
+const LoginModal = ({ isOpen, onClose, onLogin, onSwitchToRegister }) => {
   const { values, handleChange, resetForm } = useForm({
     email: "",
     password: "",
@@ -22,20 +22,25 @@ const LoginModal = ({ isOpen, onClose, onLogin }) => {
 
   return (
     <ModalWithForm
-      title="Login"
+      title="Log In"
       name="login"
-      buttonText="Login"
+      buttonText="Log In"
       isOpen={isOpen}
-      onClose={onClose}
+      onClose={() => {
+        resetForm();
+        onClose();
+      }}
       onSubmit={handleSubmit}
       submitDisabled={!(values.email && values.password)}
+      secondaryButtonText="Sign Up"
+      onSecondaryClick={onSwitchToRegister}
     >
-      <label className="add_item_modal__label">
+      <label className="modal__label">
         Email
         <input
           name="email"
           placeholder="Email"
-          className="add_item_modal__input"
+          className="modal__input"
           type="email"
           value={values.email}
           onChange={handleChange}
@@ -43,12 +48,12 @@ const LoginModal = ({ isOpen, onClose, onLogin }) => {
         />
       </label>
 
-      <label className="add_item_modal__label">
+      <label className="modal__label">
         Password
         <input
           name="password"
           placeholder="Password"
-          className="add_item_modal__input"
+          className="modal__input"
           type="password"
           value={values.password}
           onChange={handleChange}

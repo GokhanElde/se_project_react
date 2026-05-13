@@ -2,7 +2,7 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./RegisterModal.css";
 import { useForm } from "../../hooks/useForm";
 
-const RegisterModal = ({ isOpen, onClose, onRegister }) => {
+const RegisterModal = ({ isOpen, onClose, onRegister, onSwitchToLogin }) => {
   const { values, handleChange, resetForm } = useForm({
     name: "",
     avatar: "",
@@ -24,48 +24,27 @@ const RegisterModal = ({ isOpen, onClose, onRegister }) => {
 
   return (
     <ModalWithForm
-      title="Sign up"
+      title="Sign Up"
       name="register"
-      buttonText="Sign up"
+      buttonText="Sign Up"
       isOpen={isOpen}
-      onClose={onClose}
+      onClose={() => {
+        resetForm();
+        onClose();
+      }}
       onSubmit={handleSubmit}
       submitDisabled={
         !(values.name && values.avatar && values.email && values.password)
       }
+      secondaryButtonText="Log In"
+      onSecondaryClick={onSwitchToLogin}
     >
-      <label className="add_item_modal__label">
-        Name
-        <input
-          name="name"
-          placeholder="Name"
-          className="add_item_modal__input"
-          type="text"
-          value={values.name}
-          onChange={handleChange}
-          required
-        />
-      </label>
-
-      <label className="add_item_modal__label">
-        Avatar URL
-        <input
-          name="avatar"
-          placeholder="Avatar URL"
-          className="add_item_modal__input"
-          type="url"
-          value={values.avatar}
-          onChange={handleChange}
-          required
-        />
-      </label>
-
-      <label className="add_item_modal__label">
-        Email
+      <label className="modal__label">
+        Email*
         <input
           name="email"
           placeholder="Email"
-          className="add_item_modal__input"
+          className="modal__input"
           type="email"
           value={values.email}
           onChange={handleChange}
@@ -73,14 +52,40 @@ const RegisterModal = ({ isOpen, onClose, onRegister }) => {
         />
       </label>
 
-      <label className="add_item_modal__label">
-        Password
+      <label className="modal__label">
+        Password*
         <input
           name="password"
           placeholder="Password"
-          className="add_item_modal__input"
+          className="modal__input"
           type="password"
           value={values.password}
+          onChange={handleChange}
+          required
+        />
+      </label>
+
+      <label className="modal__label">
+        Name*
+        <input
+          name="name"
+          placeholder="Name"
+          className="modal__input"
+          type="text"
+          value={values.name}
+          onChange={handleChange}
+          required
+        />
+      </label>
+
+      <label className="modal__label">
+        Avatar URL*
+        <input
+          name="avatar"
+          placeholder="Avatar URL"
+          className="modal__input"
+          type="url"
+          value={values.avatar}
           onChange={handleChange}
           required
         />

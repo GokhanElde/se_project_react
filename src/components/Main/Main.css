@@ -11,3 +11,20 @@
   color: #000000;
   margin: 32px 0 24px;
 }
+
+@media screen and (max-width: 600px) {
+  .main {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 16px;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+
+  .clothes-section__title {
+    font-size: 18px;
+    line-height: 22px;
+    margin: 24px 0 20px;
+    margin-left: 0;
+  }
+}

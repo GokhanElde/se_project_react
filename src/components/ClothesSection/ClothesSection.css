@@ -44,3 +44,23 @@
   margin-left: 40px;
   margin-top: 34px;
 }
+
+@media screen and (max-width: 600px) {
+  .clothes-section__title {
+    margin-left: 0;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+    justify-items: center;
+
+    margin-left: 0;
+    margin-top: 24px;
+  }
+
+  .clothes-section__header {
+    gap: 12px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}

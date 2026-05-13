@@ -51,6 +51,7 @@
   font-size: 16px;
   cursor: pointer;
   color: #000000;
+  font-weight: 700;
 }
 
 .header__profile-link {
@@ -60,6 +61,7 @@
 
   text-decoration: none;
   color: #000;
+  font-weight: 700;
 }
 
 .header__user {
@@ -73,4 +75,58 @@
   height: 28px;
   border-radius: 50%;
   background-color: #ccc;
+}
+
+.header__auth-button {
+  border: none;
+  background: transparent;
+  padding: 0;
+
+  cursor: pointer;
+
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+
+  color: #000;
+}
+
+@media screen and (max-width: 600px) {
+  .header {
+    margin-left: 0;
+    padding: 0 16px;
+    height: auto;
+  }
+
+  .header__left {
+    gap: 12px;
+  }
+
+  .header__right {
+    margin-left: auto;
+  }
+
+  .header__actions {
+    gap: 10px;
+  }
+
+  .header__date-and-location {
+    width: auto;
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .header__auth-button {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .header__profile-link {
+    gap: 8px;
+  }
+
+  .header__add-clothes-button {
+    font-size: 14px;
+  }
 }

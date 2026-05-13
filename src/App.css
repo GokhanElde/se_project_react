@@ -14,3 +14,15 @@
 .content {
   flex-grow: 1;
 }
+
+@media screen and (max-width: 600px) {
+  .page {
+    width: 100%;
+    padding-top: 18px;
+  }
+
+  .content {
+    width: 100%;
+    overflow-x: hidden;
+  }
+}
