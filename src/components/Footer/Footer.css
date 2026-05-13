@@ -19,3 +19,26 @@
   font-weight: 500;
   color: #000;
 }
+
+@media screen and (max-width: 600px) {
+  .footer {
+    padding-left: 16px;
+    padding-right: 16px;
+    gap: 12px;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .footer__author {
+    min-width: 0;
+    max-width: calc(100% - 64px);
+    overflow-wrap: anywhere;
+    line-height: 20px;
+  }
+
+  .footer__year {
+    margin-left: auto;
+    flex-shrink: 0;
+    line-height: 20px;
+  }
+}

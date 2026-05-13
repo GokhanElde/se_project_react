@@ -45,14 +45,32 @@
   margin-top: 34px;
 }
 
+@media screen and (max-width: 1100px) {
+  .clothes-section {
+    max-width: 100%;
+  }
+
+  .clothes-section__title {
+    margin-left: 0;
+  }
+
+  .cards {
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 325px));
+    justify-content: center;
+    margin-left: 0;
+  }
+}
+
 @media screen and (max-width: 600px) {
   .clothes-section__title {
     margin-left: 0;
   }
 
   .cards {
-    grid-template-columns: 1fr;
-    justify-items: center;
+    width: 100%;
+    grid-template-columns: minmax(0, 325px);
+    justify-content: center;
 
     margin-left: 0;
     margin-top: 24px;

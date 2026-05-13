@@ -36,6 +36,7 @@ function App() {
   const [selectedCard, setSelectedCard] = useState(null);
   const [itemToDelete, setItemToDelete] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isAuthChecked, setIsAuthChecked] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
   const [weatherData, setWeatherData] = useState({
     temperature: null,
@@ -106,6 +107,7 @@ function App() {
       })
       .catch((err) => {
         console.error("Failed to add item:", err);
+        throw err;
       });
   };
 
@@ -123,6 +125,7 @@ function App() {
       })
       .catch((err) => {
         console.error("Login failed:", err);
+        throw err;
       });
   };
 
@@ -134,6 +137,7 @@ function App() {
       })
       .catch((err) => {
         console.error("Registration failed:", err);
+        throw err;
       });
   };
 
@@ -147,6 +151,7 @@ function App() {
       })
       .catch((err) => {
         console.error("Failed to update user:", err);
+        throw err;
       });
   };
 
@@ -168,6 +173,7 @@ function App() {
       })
       .catch((err) => {
         console.error("Failed to delete item:", err);
+        throw err;
       });
   };
 
@@ -197,17 +203,24 @@ function App() {
 
   useEffect(() => {
     const token = localStorage.getItem("jwt");
-    if (token) {
-      auth
-        .checkToken(token)
-        .then((user) => {
-          setCurrentUser(user);
-          setIsLoggedIn(true);
-        })
-        .catch((err) => {
-          console.error("Token validation failed:", err);
-        });
+    if (!token) {
+      setIsAuthChecked(true);
+      return;
     }
+
+    auth
+      .checkToken(token)
+      .then((user) => {
+        setCurrentUser(user);
+        setIsLoggedIn(true);
+      })
+      .catch((err) => {
+        console.error("Token validation failed:", err);
+        localStorage.removeItem("jwt");
+      })
+      .finally(() => {
+        setIsAuthChecked(true);
+      });
   }, []);
 
   return (
@@ -240,7 +253,10 @@ function App() {
               <Route
                 path="/profile"
                 element={
-                  <ProtectedRoute isLoggedIn={isLoggedIn}>
+                  <ProtectedRoute
+                    isLoggedIn={isLoggedIn}
+                    isAuthChecked={isAuthChecked}
+                  >
                     <Profile
                       clothingItems={clothingItems}
                       onCardClick={handleCardClick}

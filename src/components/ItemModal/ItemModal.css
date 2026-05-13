@@ -86,3 +86,31 @@
   padding: 0;
   padding-right: 32px;
 }
+
+@media screen and (max-width: 600px) {
+  .modal {
+    padding: 0 16px;
+    box-sizing: border-box;
+  }
+
+  .modal__content.modal__content_type_image {
+    width: 100%;
+    max-width: 498px;
+    height: auto;
+  }
+
+  .modal__image {
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
+
+  .modal__title {
+    padding-left: 20px;
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .modal__delete {
+    padding-right: 20px;
+  }
+}
