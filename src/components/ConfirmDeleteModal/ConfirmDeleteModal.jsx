@@ -17,7 +17,7 @@ const ConfirmDeleteModal = ({ isOpen, onClose, onConfirm }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="modal" onClick={onClose}>
+    <div className="modal modal_type_confirm" onClick={onClose}>
       <div
         className="modal__content modal__content_type_confirm"
         onClick={(e) => e.stopPropagation()}
@@ -26,13 +26,13 @@ const ConfirmDeleteModal = ({ isOpen, onClose, onConfirm }) => {
           <img src={closeIcon} alt="Close" />
         </button>
 
-        <p className="modal__title">
+        <p className="modal__title modal__title_type_confirm">
           Are you sure you want to delete this item?
           <br />
           This action is irreversible.
         </p>
 
-        <div className="modal__actions">
+        <div className="modal__actions modal__actions_type_confirm">
           <button type="button" className="modal__confirm" onClick={onConfirm}>
             Yes, delete item
           </button>

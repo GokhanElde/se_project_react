@@ -16,7 +16,7 @@ const ItemModal = ({ card, isOpen, onClose, onDelete }) => {
 
   return (
     <div
-      className={`modal ${isOpen ? "modal_is-opened" : ""}`}
+      className={`modal modal_type_preview ${isOpen ? "modal_is-opened" : ""}`}
       onClick={handleOverlayClick}
     >
       <div className="modal__content modal__content_type_image">
@@ -28,7 +28,9 @@ const ItemModal = ({ card, isOpen, onClose, onDelete }) => {
 
         <div className="modal__footer">
           <div className="title">
-            <h2 className="modal__title">{card.name}</h2>
+            <h2 className="modal__title modal__title_type_preview">
+              {card.name}
+            </h2>
             {isOwn && (
               <button
                 type="button"
@@ -40,7 +42,9 @@ const ItemModal = ({ card, isOpen, onClose, onDelete }) => {
             )}
           </div>
           <div className="weather_text">
-            <h2 className="modal__title">Weather: {card.weather}</h2>
+            <h2 className="modal__title modal__title_type_preview">
+              Weather: {card.weather}
+            </h2>
           </div>
         </div>
       </div>

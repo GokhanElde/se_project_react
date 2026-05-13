@@ -1,5 +1,4 @@
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
-import "./RegisterModal.css";
 import { useForm } from "../../hooks/useForm";
 
 const RegisterModal = ({ isOpen, onClose, onRegister, onSwitchToLogin }) => {

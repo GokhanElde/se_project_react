@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 
 import Header from "./Header/Header.jsx";
 import Main from "./Main/Main.jsx";
@@ -30,6 +30,7 @@ import CurrentTemperatureUnitContext from "../contexts/CurrentTemperatureUnitCon
 import "../App.css";
 
 function App() {
+  const navigate = useNavigate();
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [clothingItems, setClothingItems] = useState([]);
   const [activeModal, setActiveModal] = useState(null);
@@ -122,6 +123,7 @@ function App() {
         setCurrentUser(user);
         setIsLoggedIn(true);
         closeAllModals();
+        navigate("/");
       })
       .catch((err) => {
         console.error("Login failed:", err);

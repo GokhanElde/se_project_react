@@ -1,15 +1,8 @@
-.modal {
-  position: fixed;
-  inset: 0;
+.modal_type_preview {
   background: rgba(0, 0, 0, 0.4);
-  display: none;
-  justify-content: center;
-  align-items: center;
   color: #000;
 }
-.modal_is-opened {
-  display: flex;
-}
+
 .modal__content.modal__content_type_image {
   width: 498px;
   height: 610px;
@@ -29,7 +22,7 @@
   display: block;
   background-color: #f3f3f3;
 }
-.modal__title {
+.modal__title_type_preview {
   font-size: 20px;
   padding-left: 32px;
 
@@ -43,7 +36,7 @@
   font-size: 14px;
   color: #000;
 }
-.modal__close {
+.modal_type_preview .modal__close {
   position: absolute;
   top: 24px;
   right: 24px;
@@ -73,7 +66,7 @@
   justify-content: flex-start;
   width: 100%;
 }
-.modal__footer > .weather_text > .modal__title {
+.modal__footer > .weather_text > .modal__title_type_preview {
   padding-top: 0;
 }
 .modal__delete {
@@ -88,7 +81,7 @@
 }
 
 @media screen and (max-width: 600px) {
-  .modal {
+  .modal_type_preview {
     padding: 0 16px;
     box-sizing: border-box;
   }
@@ -104,7 +97,7 @@
     aspect-ratio: 1 / 1;
   }
 
-  .modal__title {
+  .modal__title_type_preview {
     padding-left: 20px;
     font-size: 18px;
     line-height: 22px;

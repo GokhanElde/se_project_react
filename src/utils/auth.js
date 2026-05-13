@@ -1,3 +1,5 @@
+import { checkResponse } from "./api";
+
 const baseUrl = "http://localhost:3001";
 
 export function signup(userData) {
@@ -7,12 +9,7 @@ export function signup(userData) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(userData),
-  }).then((res) => {
-    if (res.ok) {
-      return res.json();
-    }
-    return Promise.reject(`Error: ${res.status}`);
-  });
+  }).then(checkResponse);
 }
 
 export function signin(userData) {
@@ -22,12 +19,7 @@ export function signin(userData) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(userData),
-  }).then((res) => {
-    if (res.ok) {
-      return res.json();
-    }
-    return Promise.reject(`Error: ${res.status}`);
-  });
+  }).then(checkResponse);
 }
 
 export function checkToken(token) {
@@ -36,10 +28,5 @@ export function checkToken(token) {
     headers: {
       authorization: `Bearer ${token}`,
     },
-  }).then((res) => {
-    if (res.ok) {
-      return res.json();
-    }
-    return Promise.reject(`Error: ${res.status}`);
-  });
+  }).then(checkResponse);
 }

@@ -1,13 +1,5 @@
-.modal {
-  position: fixed;
-  inset: 0;
+.modal_type_confirm {
   background-color: rgba(0, 0, 0, 0.5);
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  z-index: 1000;
 }
 
 .modal__content_type_confirm {
@@ -34,7 +26,7 @@
   box-sizing: border-box;
 }
 
-.modal__title {
+.modal__title_type_confirm {
   margin: 0 0 32px;
   text-align: center;
 
@@ -44,7 +36,7 @@
   color: #000;
 }
 
-.modal__actions {
+.modal__actions_type_confirm {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -83,7 +75,7 @@
   opacity: 0.7;
 }
 
-.modal__close {
+.modal_type_confirm .modal__close {
   position: absolute;
   top: 20px;
   right: 20px;

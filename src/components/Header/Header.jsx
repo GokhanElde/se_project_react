@@ -7,6 +7,8 @@ import CurrentUserContext from "../../contexts/CurrentUserContext";
 
 const Header = ({ onAddClothes, onLogin, onRegister, city, isLoggedIn }) => {
   const currentUser = useContext(CurrentUserContext);
+  const userName = currentUser?.name || "User";
+  const avatar = currentUser?.avatar;
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
@@ -38,14 +40,18 @@ const Header = ({ onAddClothes, onLogin, onRegister, city, isLoggedIn }) => {
               </button>
 
               <Link to="/profile" className="header__profile-link">
-                <span className="header__username">
-                  {currentUser?.name || "User"}
-                </span>
-                <img
-                  src={currentUser?.avatar || ""}
-                  alt="User avatar"
-                  className="header__avatar"
-                />
+                <span className="header__username">{userName}</span>
+                {avatar ? (
+                  <img
+                    src={avatar}
+                    alt="User avatar"
+                    className="header__avatar"
+                  />
+                ) : (
+                  <div className="header__avatar-placeholder">
+                    {userName.charAt(0).toUpperCase()}
+                  </div>
+                )}
               </Link>
             </>
           ) : (
