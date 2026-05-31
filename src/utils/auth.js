@@ -1,6 +1,7 @@
-import { checkResponse } from "./api";
-
-const baseUrl = "http://localhost:3001";
+const baseUrl =
+  process.env.NODE_ENV === "production"
+    ? "https://api.ciddancode.ignorelist.com"
+    : "http://localhost:3001";
 
 export function signup(userData) {
   return fetch(`${baseUrl}/signup`, {
