@@ -3,6 +3,14 @@ const baseUrl =
     ? "https://api.ciddancode.ignorelist.com"
     : "http://localhost:3001";
 
+const checkResponse = (res) => {
+  if (res.ok) {
+    return res.json();
+  }
+
+  return Promise.reject(`Error: ${res.status}`);
+};
+
 export function signup(userData) {
   return fetch(`${baseUrl}/signup`, {
     method: "POST",
